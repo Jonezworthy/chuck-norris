@@ -1,0 +1,18 @@
+<div *ngIf="errors.length !== 0" class="container-close">
+    <mat-icon (click)="closeLoading()">close</mat-icon>
+</div>
+
+<div [class]="errors.length !== 0 ? 'container errored' : 'container'">
+    <mat-spinner *ngIf="progress < total"></mat-spinner>
+    <mat-icon class="done-icon" color="primary" *ngIf="progress >= total && errors.length === 0">done</mat-icon>
+    <mat-icon class="done-icon" color="warn" *ngIf="progress >= total && errors.length !== 0">close</mat-icon>
+    <div class="message" *ngIf="total > 0">
+        {{progress}} / {{total}}
+    </div>
+    <div class="loadingMessage" *ngIf="loadingMessage && errors.length === 0">
+        {{loadingMessage}}
+    </div>
+    <div *ngIf="errors.length !== 0" class="errors">
+        <p color="warn" *ngFor="let error of errors" class="error">{{error}}</p>
+    </div>
+</div>

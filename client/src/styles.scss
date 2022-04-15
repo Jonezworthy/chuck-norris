@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './responsive.scss';
+@import './theme.scss';
+html,
+body {
+    height: 100%;
+    background-color: #939393;
+    color: #fff;
+}
+
+body {
+    margin: 0;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+.mat-spinner {
+    margin: auto;
+    circle {
+        stroke: #333 !important;
+    }
+}
+
+.cta {
+    margin: 30px auto;
+    text-align: center;
+    color: #382a5b;
+    background: #fff;
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 175px;
+    &.redeem {
+        background: #ffa500;
+        color: #000;
+        border: 1px solid #7b7b7b;
+        box-sizing: border-box;
+        ;
+    }
+}
+
+.cta.hover:hover {
+    box-shadow: 0px 3px 5px -1px rgb(56 42 91), 0px 6px 10px 0px rgb(56 42 91), 0px 1px 18px 0px rgb(56 42 91);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background-color: #333 !important;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+@include respond-below(sm) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+.mat-dialog-content {
+    white-space: break-spaces;
+}
+

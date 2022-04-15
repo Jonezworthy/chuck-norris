@@ -1,0 +1,50 @@
+<mat-card class="light-card">
+    <mat-card-content class="padding">
+        <h2>Jokes!</h2>
+        <h3>Manage the jokes here:</h3>
+
+        <button mat-raised-button color="primary" routerLink="/">Go back</button>
+        <br />
+        <br />
+        <div class="container mat-elevation-z8">
+            <div class="loading-shade" *ngIf="isLoadingResults">
+                <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+            </div>
+
+            <div class="table-container">
+
+                <table mat-table [dataSource]="jokes" matSort matSortActive="createdAt" matSortDisableClear matSortDirection="desc" (matSortChange)="paginator.pageIndex = 0;">
+
+                    <ng-container matColumnDef="text">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Joke Text</th>
+                        <td mat-cell *matCellDef="let joke"> <strong>{{joke.text}} </strong></td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="createdAt">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
+                        <td mat-cell *matCellDef="let joke">
+                            <span *ngIf="joke.createdAt">
+                                {{joke.createdAt | date : 'dd-MM-yyyy h:mm:ss a'}} <strong>({{joke.createdAt | dateAgo}})</strong>
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let joke">
+                            <button class="inspect" color="warn" (click)="delete(joke)" mat-mini-fab color="primary">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+
+            <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+        </div>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,31 @@
+<mat-card class="">
+    <mat-card-content class="joke-container" [formGroup]="searchFormGroup">
+        <h3>Enter your own joke or click Find Joke to download one</h3>
+
+        <div class="joke-box">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Enter a Chuck Norris joke</mat-label>
+                <input type="text" autocomplete="off" matInput placeholder="Enter a joke..." formControlName="jokeText">
+
+                <mat-error *ngIf="searchFormGroup.controls.jokeText && searchFormGroup.controls.jokeText.hasError('minlength')">
+                    <strong>Please enter at least 10 characters</strong>
+                </mat-error>
+                <mat-error *ngIf="searchFormGroup.controls.jokeText && searchFormGroup.controls.jokeText.hasError('required')">
+                    This is <strong>required</strong>
+                </mat-error>
+
+                <button color="warn" mat-button *ngIf="searchFormGroup.controls.jokeText.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchFormGroup.controls.jokeText.reset(); ">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button class="save-button" color="primary" [disabled]="searchFormGroup.controls.jokeText.invalid" (click)="saveJoke()">Save this joke</button>
+        </div>
+
+        
+        <div class="joke-row">
+            <button mat-raised-button class="new-button" color="secondary" [disabled]="downloading" (click)="downloadJoke()">Download a joke <mat-spinner *ngIf="downloading"></mat-spinner></button>
+        </div>
+
+    </mat-card-content>
+</mat-card>

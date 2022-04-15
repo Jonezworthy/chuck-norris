@@ -1,0 +1,70 @@
+@import "../../../responsive.scss";
+
+.joke-container {
+    h3 {
+        text-align: center;
+        width: 100%;
+    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+
+    .joke-box {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 50%;
+
+        mat-form-field {
+            display: block;
+            width: 85%;
+            max-width: 1200px;
+
+            @include respond-below(lg) {
+                width: 100%;
+                max-width: initial;
+            }
+        }
+
+        .save-button {
+            height: 55px;
+            position: relative;
+            top: -9px;
+            margin: 0 0.5rem;
+            /* The error box is 9px high with no content */
+        }
+
+        .mat-button-disabled {
+            opacity: 0.3;
+            color: #fff;
+        }
+    }
+    .joke-row {
+        display: block;
+        width: 100%;
+
+        .new-button {
+            display: block;
+            margin: 2rem auto;
+            height: 55px;
+
+            mat-spinner {
+                transform: scale(0.2);
+                width: 30px !important;
+                height: 50px !important;
+                display: inline-block;
+                position: relative;
+                top: -5px;
+                overflow: initial;
+                padding: 0;
+            }
+        }
+    }
+}

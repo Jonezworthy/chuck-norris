@@ -1,0 +1,13 @@
+<div *ngIf="data">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <p>{{data.content}}</p>
+    <mat-form-field>
+        <mat-label>{{data.questionContent}}</mat-label>
+        <input (keypress)="keypress($event)" matInput [(ngModel)]="input">
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="close(true)" autofocus cdkFocusInitial color="primary">Ok</button>
+        <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+    </div>
+</div>

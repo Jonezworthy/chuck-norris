@@ -1,0 +1,9 @@
+{
+    "watch": "*.ts",
+    "execMap": {
+        "ts": "ts-node"
+    },
+    "nodemonConfig": {
+        "ignore": [".vscode/*.json", ".vscode/*.js"]
+    }
+}
