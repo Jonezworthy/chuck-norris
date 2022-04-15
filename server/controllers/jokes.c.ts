@@ -41,7 +41,7 @@ export default class Jokes extends AutoLoad implements Controller {
             return CommonResponses('error'); // dependency injection failure
 
         const { text } = payload;
-        if (!text || text.length <= 10) {
+        if (!text || text.length < 10) {
             return CommonResponses('warning', 'Joke is not long enough');
         }
         const overwrite: Boolean = payload.overwrite === 'true';
@@ -76,6 +76,9 @@ export default class Jokes extends AutoLoad implements Controller {
         if (!text || text.length <= 10) {
             return CommonResponses('warning', 'Joke is not long enough');
         }
+
+        if (joke.createdAt)
+            joke.createdAt = new Date(joke.createdAt.toString());
 
         await this.model.upsert({ _id: new ObjectId(payload._id) }, joke);
 

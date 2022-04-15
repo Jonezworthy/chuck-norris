@@ -99,6 +99,8 @@ export class HomeComponent implements OnInit, OnDestroy {
                     }
                 });
             }, 1500);
+        } else if (response.status === 'warning' && 'warning' in response && response.warning) {
+            this.Interact.setError(response.warning);
         } else {
             this.Interact.addProgress(1);
         }

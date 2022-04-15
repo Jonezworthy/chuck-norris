@@ -24,7 +24,7 @@
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
                         <td mat-cell *matCellDef="let joke">
                             <span *ngIf="joke.createdAt">
-                                {{joke.createdAt | date : 'dd-MM-yyyy h:mm:ss a'}} <strong>({{joke.createdAt | dateAgo}})</strong>
+                                <strong>{{joke.createdAt | dateAgo}}</strong> <small> ({{joke.createdAt | date : 'dd-MM-yyyy h:mm:ss a'}}</small>)
                             </span>
                         </td>
                     </ng-container>

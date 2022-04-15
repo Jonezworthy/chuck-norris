@@ -72,7 +72,6 @@ export class AllComponent implements OnInit, OnDestroy {
         joke.hidden = true;
         await this.Jokes.putJoke(joke);
         this.manualSearch.emit();
-
         let snackBarRef = this.snackBar.open('Deleted this joke.', 'Undo', { duration: secondsBeforeRealDelete });
 
         const delayedDelete = setTimeout(async () => {
