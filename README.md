@@ -1,11 +1,15 @@
 # Read Me
-### I wish I had more time to finish and tighten up the unit tests, but life must get in the way  \
+### I wish I had more time to finish and tighten up the unit tests, but life must get in the way 
+&nbsp;
 ### Feel free to ask any questions if something looks crazy - there's usually a good reason
 &nbsp;
+## Requirements
+The version of NodeJS I used to run this is 14.17.0, other versions will work, but you may wish to use this if you have trouble
 #
 
+&nbsp;
 ## Client - the front facing code, powered by Angular 
-## Server - the back end code, powered by TypeScript - NodeJS/MongoDB/Express
+## Server - the back end code, powered by TypeScript
 &nbsp;
 ## You must run the Client and Server at the same time
 &nbsp;
@@ -23,7 +27,7 @@
 	cd server
 	npm install
 	npm install nodemon -g
-	npm install typescript -g
+	npm install ts-node -g
 	nodemon 
 
 # How to run unit tests (SERVER)
@@ -41,5 +45,3 @@ Alternatively, you can add your own MongoDB Connection string if you wish to con
 Add this to the bottom of the .env file to do this
 
 
-## Requirements
-The version of NodeJS I used to run this is 14.17.0, other versions will work, but you may wish to use this if you have trouble
